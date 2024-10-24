@@ -1,16 +1,31 @@
 package org.example
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-fun main() {
-    val name = "Kotlin"
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    println("Hello, " + name + "!")
+import jakarta.persistence.Persistence
+import org.example.tolearn2.Producto
+import org.example.tolearn2.Proveedor
+import org.example.tolearn2.Usuario
+import java.time.Instant
+import java.util.Date
 
-    for (i in 1..5) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        println("i = $i")
-    }
+fun main() {
+
+    val inspector = Inspector("20601013l","carlos","ruiz",emptyList())
+
+    val instituto = Instituto("123-123","IES Palamos",inspector)
+
+    val director = Director("12345678ñ","Paco","Tabaco",instituto)
+
+    val depart = Departamento("It",instituto)
+    val depart2 = Departamento("Programacion",instituto)
+
+    val proveedor = org.example.Proveedor("123-123-123","IAMPE",listOf(instituto))
+
+
+    val dR = DepartamentoRepository()
+//    dR.insertDepart(depart2)
+//    dR.selectAllDeparts().forEach{
+//        println("${it.id}, ${it.nombre}, ${it.instituto?.id}")
+//    }
+
+    dR.deleteDepart(3)
 }
